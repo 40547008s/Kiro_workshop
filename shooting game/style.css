@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #0a0e27 0%, #1a1a2e 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.screen {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#instructions {
+    max-width: 500px;
+    padding: 40px;
+}
+
+#instructions h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #00ff88;
+    text-shadow: 0 0 20px #00ff88;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.controls h2 {
+    margin-bottom: 20px;
+    color: #00ff88;
+}
+
+.controls p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+button {
+    background: #00ff88;
+    color: #0a0e27;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #00cc6a;
+    transform: scale(1.05);
+}
+
+#gameScreen {
+    position: relative;
+}
+
+#hud {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#gameCanvas {
+    display: block;
+    background: #0a0e27;
+    border: 3px solid #00ff88;
+}
+
+#pauseMenu, #gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(10, 14, 39, 0.95);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #00ff88;
+}
+
+#pauseMenu h2, #gameOver h2 {
+    margin-bottom: 20px;
+    color: #00ff88;
+}
+
+#gameOver p {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+}
+
+#pauseMenu button, #gameOver button {
+    margin: 10px;
+}

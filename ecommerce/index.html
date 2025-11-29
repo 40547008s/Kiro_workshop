@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">TechStore</h1>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to TechStore</h2>
+            <p>Your one-stop shop for the latest tech gadgets</p>
+            <a href="products.html" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="product-grid" id="featured-products"></div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+    <script>
+        displayFeaturedProducts();
+        updateCartCount();
+    </script>
+</body>
+</html>

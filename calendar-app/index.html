@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialCal - Share Your Time</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">📅 SocialCal</h1>
+            <div class="user-info">
+                <span id="username">Guest</span>
+                <button class="btn-small" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="login-screen" class="screen">
+        <div class="login-box">
+            <h2>Welcome to SocialCal</h2>
+            <p>Connect, Share, Meet</p>
+            
+            <div id="login-form">
+                <h3>Login</h3>
+                <input type="email" id="login-email" placeholder="Email" />
+                <input type="password" id="login-password" placeholder="Password" />
+                <button class="btn" onclick="login()">Login</button>
+                <p class="switch-form">Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+            </div>
+
+            <div id="signup-form" class="hidden">
+                <h3>Create Account</h3>
+                <input type="text" id="signup-name" placeholder="Full Name" />
+                <input type="email" id="signup-email" placeholder="Email" />
+                <input type="password" id="signup-password" placeholder="Password" />
+                <input type="date" id="signup-birthday" placeholder="Birthday" />
+                <select id="signup-gender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <textarea id="signup-bio" placeholder="Tell us about yourself..."></textarea>
+                <input type="text" id="signup-interests" placeholder="Interests (comma separated)" />
+                <button class="btn" onclick="signup()">Create Account</button>
+                <p class="switch-form">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-screen" class="screen hidden">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('calendar')">📅 My Calendar</button>
+                <button class="tab" onclick="switchTab('events')">🎉 Events</button>
+                <button class="tab" onclick="switchTab('friends')">👥 Meet Friends</button>
+            </div>
+
+            <div id="calendar-tab" class="tab-content">
+                <div class="calendar-header">
+                    <button onclick="changeMonth(-1)">◀</button>
+                    <h2 id="current-month"></h2>
+                    <button onclick="changeMonth(1)">▶</button>
+                </div>
+                <div id="calendar-grid" class="calendar-grid"></div>
+                <div id="selected-day-events"></div>
+                <button class="btn" onclick="showEventModal()">+ Create Event</button>
+            </div>
+
+            <div id="events-tab" class="tab-content hidden">
+                <h2>Event Invitations</h2>
+                <div id="invitations-list"></div>
+                <h2>My Events</h2>
+                <div id="my-events-list"></div>
+            </div>
+
+            <div id="friends-tab" class="tab-content hidden">
+                <div class="profile-section">
+                    <h2>My Profile</h2>
+                    <div id="user-profile"></div>
+                    <button class="btn-small" onclick="showEditProfile()">Edit Profile</button>
+                </div>
+                
+                <h2>Meet New Friends</h2>
+                <div id="match-card" class="match-card"></div>
+                <div class="match-actions">
+                    <button class="btn-reject" onclick="rejectMatch()">❌ Pass</button>
+                    <button class="btn-accept" onclick="acceptMatch()">💚 Connect</button>
+                </div>
+                <h2>My Connections</h2>
+                <div id="friends-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="event-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeEventModal()">&times;</span>
+            <h2>Create Event</h2>
+            <input type="text" id="event-title" placeholder="Event title" />
+            <input type="date" id="event-date" />
+            <input type="time" id="event-time" />
+            <textarea id="event-description" placeholder="Description"></textarea>
+            <label>
+                <input type="checkbox" id="event-public" />
+                Share with all friends
+            </label>
+            <div id="friend-select"></div>
+            <button class="btn" onclick="createEvent()">Create Event</button>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfileModal()">&times;</span>
+            <h2>Edit Profile</h2>
+            <input type="text" id="edit-name" placeholder="Full Name" />
+            <input type="date" id="edit-birthday" placeholder="Birthday" />
+            <select id="edit-gender">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <textarea id="edit-bio" placeholder="Bio"></textarea>
+            <input type="text" id="edit-interests" placeholder="Interests (comma separated)" />
+            <button class="btn" onclick="saveProfile()">Save Changes</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
